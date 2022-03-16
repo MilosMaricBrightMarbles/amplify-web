@@ -1,0 +1,100 @@
+{
+  "extends": [
+    "next/core-web-vitals",
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb/whitespace",
+    "airbnb-typescript",
+    "plugin:tailwindcss/recommended",
+    "prettier"
+  ],
+  "plugins": ["tailwindcss", "simple-import-sort"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/require-default-props": "off",
+    "react/prop-types": "off",
+    "react/jsx-props-no-spreading": "off",
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/react-in-jsx-scope": "error",
+    "tailwindcss/classnames-order": "error",
+    "tailwindcss/enforces-negative-arbitrary-values": "error",
+    "tailwindcss/migration-from-tailwind-2": "error",
+    "tailwindcss/no-custom-classname": [
+      "error",
+      {
+        "whitelist": ["scrollbar\\-(hide|default)"]
+      }
+    ],
+    "tailwindcss/enforces-shorthand": "error",
+    "tailwindcss/no-contradicting-classname": "error",
+    "react/jsx-no-target-blank": [
+      "error",
+      {
+        "allowReferrer": true
+      }
+    ],
+    "jsx-a11y/media-has-caption": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "jsx-a11y/no-static-element-interactions": "off",
+    "no-restricted-imports": [
+      "error",
+      {
+        "paths": [
+          {
+            "name": "lodash",
+            "message": "Use lodash/xxx instead"
+          },
+          {
+            "name": "lodash/es",
+            "message": "Use lodash/xxx instead"
+          },
+          {
+            "name": "next/link",
+            "message": "Use common/components/link instead."
+          },
+          {
+            "name": "next/image",
+            "message": "Use common/components/image instead."
+          }
+        ],
+        "patterns": [
+          {
+            "group": ["**/sdk.graphql"],
+            "message": "Use client.graphql instead."
+          }
+        ]
+      }
+    ],
+    "import/prefer-default-export": "off",
+    "import/no-default-export": "error"
+  },
+  "overrides": [
+    {
+      "files": ["src/pages/**/*.tsx"],
+      "rules": {
+        "import/no-default-export": "off",
+        "no-restricted-imports": [
+          "off",
+          {
+            "patterns": [
+              {
+                "group": ["**/sdk.graphql"]
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}
